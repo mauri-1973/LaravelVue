@@ -35,4 +35,5 @@ class CreateEntriesTable extends Migration
     {
         Schema::dropIfExists('entries');
     }
+    
 }

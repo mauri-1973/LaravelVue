@@ -30,3 +30,4 @@ class EntryFactory extends Factory
         ];
     }
 }
+
