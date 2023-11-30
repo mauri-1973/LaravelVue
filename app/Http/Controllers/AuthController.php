@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Validator;
+use Mail;
+use App\Mail\EmailInfo;
 
 /**
  * Class AuthController
@@ -30,9 +32,9 @@ class AuthController extends Controller
     {
         $this->validateLogin($request);
 
-        // If the class is using the ThrottlesLogins trait, we can automatically throttle
-        // the login attempts for this application. We'll key this by the username and
-        // the IP address of the client making these requests into this application.
+        // Si la clase usa el trait ThrottlesLogins, podemos acelerar automáticamente
+        // los intentos de inicio de sesión para esta aplicación. Introduciremos esto por el nombre de usuario y
+        // la dirección IP del cliente que realiza estas solicitudes en esta aplicación.
         if ($this->hasTooManyLoginAttempts($request)) {
             $this->fireLockoutEvent($request);
             $seconds = $this->limiter()->availableIn($this->throttleKey($request));
@@ -50,33 +52,45 @@ class AuthController extends Controller
         }
 
 
-        // If the login attempt was unsuccessful we will increment the number of attempts
-        // to login and redirect the user back to the login form. Of course, when this
-        // user surpasses their maximum number of attempts they will get locked out.
+        // Si el intento de inicio de sesión no tuvo éxito, incrementaremos el número de intentos
+        // para iniciar sesión y redirigir al usuario al formulario de inicio de sesión. Por supuesto, cuando esto
+        // el usuario supera su número máximo de intentos y quedará bloqueado.
         $this->incrementLoginAttempts($request);
 
         abort(401, Lang::get('auth.failed'));
     }
 
     /**
-     * Registration
+     * Registro
      *
-     * Handle a registration request for the application.
+     * Handle al registro request para el formulario y envío de email
+     * El envío del mail debe hacerse como una tarea programada pero dedido a la premura se ha realizado directamente una vez hecho el registro
      *
      * @param  \Illuminate\Http\Request $request
      * @return array
      */
     public function register(Request $request)
     {
+       
         $this->validator($request->all())->validate();
 
         event(new Registered($user = $this->create($request->all())));
+        
+        $content = [
+            'asunto' => 'Registro exitoso',
+            'nombre' => $request->name,
+            'email' => $request->email,
+            'pass' => $request->password,
+            'mensaje' => 'Se ha creado una cuenta en nuestra plataforma',
+        ];
+
+        Mail::to('mauri-1973@outlook.cl')->send(new EmailInfo($content));
 
         return ['user' => $user, 'access_token' => $user->makeApiToken()];
     }
 
     /**
-     * Get a validator for an incoming registration request.
+     * Validar datos ingresados en el formulario.
      *
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
@@ -101,7 +115,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Create a new user instance after a valid registration.
+     * Creación del nuevo usuario.
      *
      * @param  array  $data
      * @return User

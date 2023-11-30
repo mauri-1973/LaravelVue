@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Mail;
+use App\Mail\EmailInfo;
 
 /**
  * Class UserController
@@ -14,9 +16,9 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     /**
-     * Сurrent authenticated user
+     * Autentificación del usuario
      *
-     * Return current authenticated user data
+     * Retorna los datos del usuario autenticado
      *
      * @param Request $request
      * @return mixed
@@ -27,9 +29,8 @@ class UserController extends Controller
     }
 
     /**
-     * Users list
+     * Listar usuarios
      *
-     * Display a listing of users
      *
      * @param Request $request
      * @return array
@@ -49,9 +50,7 @@ class UserController extends Controller
     }
 
     /**
-     * Show user
-     *
-     * Display the specified user.
+     * Mostrar usuario específico
      *
      * @param User $user
      * @return array
@@ -64,9 +63,8 @@ class UserController extends Controller
     }
 
     /**
-     * Update user
-     *
-     * Update the specified user in storage.
+     * Actualizar usuario y envío de email de notificación
+     * El envío del mail debe hacerse como una tarea programada pero dedido a la premura se ha realizado directamente una vez actualizado el usuario
      *
      * @param  \Illuminate\Http\Request $request
      * @param User                      $user
@@ -98,13 +96,22 @@ class UserController extends Controller
             $user->password = bcrypt($request->get('password'));
         }
 
-        // Update user role only by admin
         if ($request->get('role') && $request->get('role') !== $user->role) {
             if (! auth()->user()->isAdmin()) abort(401, Lang::get('auth.texto1'));
 
             if (auth()->id() === $user->id) abort(401, Lang::get('auth.texto2'));
             $user->role = $request->get('role');
         }
+
+        $content = [
+            'asunto' => 'Acvtualizació de datos',
+            'nombre' => $request->name,
+            'email' => $request->email,
+            'pass' => $request->password,
+            'mensaje' => 'Se han actualizado los datos de su cuenta en nuestra plataforma',
+        ];
+
+        Mail::to($request->email)->send(new EmailInfo($content));
 
         $user->save();
 

@@ -16,9 +16,9 @@ use Illuminate\Http\Request;
 class EntryController extends Controller
 {
     /**
-     * Entries list
+     * lista de Estadísticas
      *
-     * Display a listing of time entries.
+     * Despliega el listado de estadísticas
      *
      * @param Request $request
      * @return array
@@ -37,9 +37,9 @@ class EntryController extends Controller
     }
 
     /**
-     * All ennties list
+     * Listado de todas las estadísticas
      *
-     * Display a listing of all users time entries (admin access only).
+     * Despliega el listado total de estadísticas. Solo el administrador.
      *
      * @param Request $request
      * @return array
@@ -57,9 +57,9 @@ class EntryController extends Controller
     }
 
     /**
-     * Store Entry
+     * Gurda las estadísticas
      *
-     * Store a newly created time entry in storage.
+     * Realiza la validación y crear un nuevo registro.
      *
      * @param Request $request
      * @return array
@@ -94,9 +94,9 @@ class EntryController extends Controller
     }
 
     /**
-     * Show entry
+     * Mostrar estadística
      *
-     * Display the specified time entry.
+     * despliega una estadística concreta.
      *
      * @param Entry $entry
      * @return array
@@ -109,9 +109,9 @@ class EntryController extends Controller
     }
 
     /**
-     * Update entry
+     * Actualizar estadística
      *
-     * Update time entry in storage.
+     * Actualiza un registro específico.
      *
      * @param Request $request
      * @param Entry                      $entry
@@ -150,9 +150,9 @@ class EntryController extends Controller
 
 
     /**
-     * Delete entry
+     * Eliminar registro
      *
-     * Remove time entry from storage.
+     * Elimina datos de las estadísticas
      *
      * @param Entry $entry
      * @return array

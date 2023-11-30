@@ -19,7 +19,7 @@ class DashboardController extends Controller
     /**
      * Dashboard
      *
-     * Get user dashboard data
+     * Lectura de datos para desplegar en la vista
      *
      * @param Request $request
      * @return mixed
@@ -52,12 +52,12 @@ class DashboardController extends Controller
     /**
      * Admin dashboard
      *
-     * Get admin dashboard data
+     * Lectura de datos para desplegar en la vista
      *
      * @param Request $request
      * @return mixed
      */
-    
+
     public function adminData(Request $request)
     {
         /** @var User $me */
