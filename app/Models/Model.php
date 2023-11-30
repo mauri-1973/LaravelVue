@@ -13,3 +13,4 @@ abstract class Model extends Eloquent
      */
     protected $perPage = 15;
 }
+

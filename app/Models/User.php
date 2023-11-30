@@ -96,3 +96,4 @@ class User extends Model implements
         return $this->role === 'manager';
     }
 }
+
