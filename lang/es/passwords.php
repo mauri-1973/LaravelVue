@@ -12,6 +12,7 @@ return [
     | has failed, such as for an invalid token or invalid new password.
     |
     */
+    
 
     'reset' => '¡Tu contraseña ha sido restablecida!',
     'sent' => '¡Le hemos enviado por correo electrónico el enlace para restablecer su contraseña!',
