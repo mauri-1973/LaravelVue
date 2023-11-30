@@ -16,6 +16,7 @@ return [
     'failed' => 'Estas credenciales no coinciden con nuestros registros.',
     'password' => 'La contraseña proporcionada es incorrecta.',
     'throttle' => 'Demasiados intentos de inicio de sesión. Inténtelo de nuevo en :seconds segundos.',
-    'texto1' => 'No puede revocar su propio rol de administrador.',
+    'texto1' => 'No autorizado para editar el rol de usuario.', 
+    'texto2' => 'No puede revocar su propio rol de administrador.',
 
 ];
