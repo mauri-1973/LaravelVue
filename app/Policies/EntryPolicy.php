@@ -81,4 +81,5 @@ class EntryPolicy
     {
         return $user->id === $entry->user_id;
     }
+    
 }
