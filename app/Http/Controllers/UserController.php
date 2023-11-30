@@ -100,9 +100,9 @@ class UserController extends Controller
 
         // Update user role only by admin
         if ($request->get('role') && $request->get('role') !== $user->role) {
-            if (! auth()->user()->isAdmin()) abort(401, 'Unathorized to edit user role.');
+            if (! auth()->user()->isAdmin()) abort(401, Lang::get('auth.texto1'));
 
-            if (auth()->id() === $user->id) abort(401, 'You can not revoke your own admin role.');
+            if (auth()->id() === $user->id) abort(401, Lang::get('auth.texto2'));
             $user->role = $request->get('role');
         }
 
