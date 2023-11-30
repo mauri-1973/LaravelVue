@@ -72,15 +72,15 @@ class EntryController extends Controller
             'time'     => 'required|date_format:H:i:s|time_required',
         ], [
 
-            'date.required' => 'la fecha es requerida',
-            'date.date' => 'El formato de la fecha no es válido.',
-            'date.before' => 'La fecha no debe ser superior a la de hoy.',
-            'distance.required' => 'la distancia es requerida',
-            'distance.numeric' => 'El valor ingresado de la distancia debe ser numérico.',
-            'distance.min' => 'el valor mínimo para la distancia es de 0.01.',
-            'time.required' => 'El hora es requerido.',
-            'time.date_format' => 'el formato de la hora es incorrecto.',
-            'time.time_required' => 'El tiempo es requerido.',
+            'date.required' => Lang::get('auth.texto13'),
+            'date.date' => Lang::get('auth.texto14'),
+            'date.before' => Lang::get('auth.texto15'),
+            'distance.required' => Lang::get('auth.texto16'),
+            'distance.numeric' => Lang::get('auth.texto17'),
+            'distance.min' => Lang::get('auth.texto8'),
+            'time.required' => Lang::get('auth.texto19'),
+            'time.date_format' => Lang::get('auth.texto20'),
+            'time.time_required' => Lang::get('auth.texto21'),
         ]);
 
         $entry = new Entry($request->only('distance', 'time'));
@@ -127,15 +127,15 @@ class EntryController extends Controller
             'time'     => 'required|date_format:H:i:s|time_required',
         ], [
 
-            'date.required' => 'la fecha es requerida',
-            'date.date' => 'El formato de la fecha no es válido.',
-            'date.before' => 'La fecha no debe ser superior a la de hoy.',
-            'distance.required' => 'la distancia es requerida',
-            'distance.numeric' => 'El valor ingresado de la distancia debe ser numérico.',
-            'distance.min' => 'el valor mínimo para la distancia es de 0.01.',
-            'time.required' => 'El tiempo es requerido.',
-            'time.date_format' => 'el formato del tiempo es incorrecto.',
-            'time.time_required' => 'El tiempo es requerido.',
+            'date.required' => Lang::get('auth.texto13'),
+            'date.date' => Lang::get('auth.texto14'),
+            'date.before' => Lang::get('auth.texto15'),
+            'distance.required' => Lang::get('auth.texto16'),
+            'distance.numeric' => Lang::get('auth.texto17'),
+            'distance.min' => Lang::get('auth.texto8'),
+            'time.required' => Lang::get('auth.texto19'),
+            'time.date_format' => Lang::get('auth.texto20'),
+            'time.time_required' => Lang::get('auth.texto21'),
             
         ]);
 
@@ -147,7 +147,7 @@ class EntryController extends Controller
 
         return ['entry' => $entry];
     }
-    
+
 
     /**
      * Delete entry

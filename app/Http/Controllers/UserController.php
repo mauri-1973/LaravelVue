@@ -82,15 +82,15 @@ class UserController extends Controller
             'password' => 'nullable|min:6|confirmed',
         ], [
 
-            'name.required' => 'El nombre es requerido.',
-            'name.max' => 'El máximo de caracteres son 50 caracteres para el nombre',
-            'email.required' => 'El email es obligatorio',
-            'email.email' => 'El email ingresado no es válido.',
-            'email.max' => 'El máximo de caracteres son de 120 caracteres para el email.',
-            'email.unique' => 'El email ya se encuentra registrado.',
-            'password.confirmed' => 'Las contraseñas nos son iguales.',
-            'password.nullable' => 'El password no puede ser un valor nulo.',
-            'password.min' => 'El password debe tener al menos 6 caracteres.',
+            'name.required' => Lang::get('auth.texto3'),
+            'name.max' => Lang::get('auth.texto4'),
+            'email.required' => Lang::get('auth.texto5'),
+            'email.email' => Lang::get('auth.texto6'),
+            'email.max' => Lang::get('auth.texto7'),
+            'email.unique' => Lang::get('auth.texto8'),
+            'password.confirmed' => Lang::get('auth.texto9'),
+            'password.nullable' => Lang::get('auth.texto10'),
+            'password.min' => Lang::get('auth.texto11'),
         ]);
 
         $user->fill($request->only('name', 'email'));
@@ -110,7 +110,7 @@ class UserController extends Controller
 
         return ['user' => $user];
     }
-    
+
 
     /**
      * Delete user
