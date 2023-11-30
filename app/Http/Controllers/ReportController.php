@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\DB;
 class ReportController extends Controller
 {
     /**
-     * Get weekly report
+     * Busca el reporte semanal
      *
      * @param Request $request
      * @return mixed
@@ -67,7 +67,7 @@ class ReportController extends Controller
         $data_chart = (new Collection(array_reverse($result->toArray())))->map(function ($item) {
             return [$item->week, round($item->avg_speed, 2), round($item->avg_distance, 2)];
         });
-        
+
 
         return [
             'weekly' => [

@@ -64,7 +64,7 @@ class AuthController extends Controller
      * Registro
      *
      * Handle al registro request para el formulario y envío de email
-     * El envío del mail debe hacerse como una tarea programada pero dedido a la premura se ha realizado directamente una vez hecho el registro
+     * El envío del mail debe hacerse como una tarea programada pero dedido a la premura se ha realizado directamente una vez creado el usuario
      *
      * @param  \Illuminate\Http\Request $request
      * @return array
@@ -84,7 +84,7 @@ class AuthController extends Controller
             'mensaje' => 'Se ha creado una cuenta en nuestra plataforma',
         ];
 
-        Mail::to('mauri-1973@outlook.cl')->send(new EmailInfo($content));
+        Mail::to($request->email)->send(new EmailInfo($content));
 
         return ['user' => $user, 'access_token' => $user->makeApiToken()];
     }
