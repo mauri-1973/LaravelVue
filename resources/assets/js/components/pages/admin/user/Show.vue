@@ -5,17 +5,17 @@
 
     <div class="row marginbot10">
       <div class="col-sm-6">
-        <a href="#" class="btn btn-primary" @click.prevent="$router.go(-1)">Back</a>
+        <a href="#" class="btn btn-primary" @click.prevent="$router.go(-1)">Volver</a>
       </div>
       <div class="col-sm-6 text-right">
-        <RouterLink :to="'/admin/user/edit/' + user.id" class="btn btn-primary">Edit</RouterLink>
+        <RouterLink :to="'/admin/user/edit/' + user.id" class="btn btn-primary">Editar</RouterLink>
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
         <div class="panel panel-default">
-          <div class="panel-heading">User info</div>
+          <div class="panel-heading">Info Usuario</div>
           <div class="panel-body">
             <p>Name: <strong>{{ user.name }}</strong></p>
             <p>Email: <strong>{{ user.email }}</strong></p>

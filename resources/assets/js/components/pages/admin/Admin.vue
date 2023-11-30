@@ -18,7 +18,7 @@
           </RouterLink>
           <RouterLink v-if="me.role == 'admin'" v-slot="{ navigate, href, isActive }" custom to="/admin/entries">
             <li :class="{active: isActive}">
-              <a :href="href" @click="navigate">Entradas</a>
+              <a :href="href" @click="navigate">Estadísticas</a>
             </li>
           </RouterLink>
         </ul>

@@ -20,7 +20,7 @@
       <div class="col-sm-6">
 
         <div class="panel panel-default">
-          <div class="panel-heading">Estado Entradas</div>
+          <div class="panel-heading">Estado Estadísticas</div>
           <div class="panel-body">
             <p>Total entradas: <strong>{{ admin_dashboard.total_entries }}</strong></p>
             <p>Entradas medias por usuario: <strong>{{ admin_dashboard.avg_entries_per_user }}</strong></p>

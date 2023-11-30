@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h3>Editar Registro</h3>
+    <h3>Editar Estadísticas</h3>
     <hr>
 
     <p>

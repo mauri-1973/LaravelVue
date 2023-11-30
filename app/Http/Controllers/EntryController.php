@@ -80,6 +80,7 @@ class EntryController extends Controller
             'distance.min' => 'el valor mínimo para la distancia es de 0.01.',
             'time.required' => 'El hora es requerido.',
             'time.date_format' => 'el formato de la hora es incorrecto.',
+            'time.time_required' => 'El tiempo es requerido.',
         ]);
 
         $entry = new Entry($request->only('distance', 'time'));
@@ -132,8 +133,10 @@ class EntryController extends Controller
             'distance.required' => 'la distancia es requerida',
             'distance.numeric' => 'El valor ingresado de la distancia debe ser numérico.',
             'distance.min' => 'el valor mínimo para la distancia es de 0.01.',
-            'time.required' => 'El hora es requerido.',
-            'time.date_format' => 'el formato de la hora es incorrecto.',
+            'time.required' => 'El tiempo es requerido.',
+            'time.date_format' => 'el formato del tiempo es incorrecto.',
+            'time.time_required' => 'El tiempo es requerido.',
+            
         ]);
 
         $entry->fill($request->only('distance', 'time'));

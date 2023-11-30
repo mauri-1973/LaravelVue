@@ -7,20 +7,20 @@
       <div class="col-sm-6">
 
         <div class="panel panel-default">
-          <div class="panel-heading">This week</div>
+          <div class="panel-heading">Por Semana</div>
           <div class="panel-body">
-            <p>Records: <strong>{{ dashboard.weekly_count }}</strong></p>
-            <p>Average speed: <strong>{{ Number(dashboard.weekly_avg_speed).toFixed(2) }} km/h</strong></p>
-            <p>Average pace: <strong>{{ Number(dashboard.weekly_avg_pace).toFixed(2) }} min/km</strong></p>
+            <p>Registros: <strong>{{ dashboard.weekly_count }}</strong></p>
+            <p>Velocidad Media: <strong>{{ Number(dashboard.weekly_avg_speed).toFixed(2) }} km/h</strong></p>
+            <p>Promedio: <strong>{{ Number(dashboard.weekly_avg_pace).toFixed(2) }} min/km</strong></p>
           </div>
         </div>
 
         <div class="panel panel-default">
-          <div class="panel-heading">Best results</div>
+          <div class="panel-heading">Mejores Resultados</div>
           <div class="panel-body">
-            <p>Best speed: <strong>{{ Number(dashboard.max_speed).toFixed(2) }} km/h</strong></p>
-            <p>Longest distance: <strong>{{ dashboard.max_distance }} km</strong></p>
-            <p>Longest run: <strong>{{ dashboard.max_time }}</strong></p>
+            <p>Mejor Velocidad: <strong>{{ Number(dashboard.max_speed).toFixed(2) }} km/h</strong></p>
+            <p>Distancia más Larga: <strong>{{ dashboard.max_distance }} km</strong></p>
+            <p>Mejor Tiempo: <strong>{{ dashboard.max_time }}</strong></p>
           </div>
         </div>
 
@@ -28,7 +28,7 @@
       <div class="col-sm-6">
 
         <div class="panel panel-default">
-          <div class="panel-heading">My Performance</div>
+          <div class="panel-heading">Datos</div>
           <Line
             :chart-options="{responsive: true, maintainAspectRatio: false}"
             :chart-data="chartData"
@@ -37,7 +37,7 @@
         </div>
 
         <div class="panel panel-default">
-          <div class="panel-heading">Add new Time Record</div>
+          <div class="panel-heading">Agregar nuevo registro</div>
           <div class="panel-body">
             <entry-form :form="form" :errors="errors" @onSubmit="onSubmit" />
           </div>
@@ -87,13 +87,13 @@ export default {
         labels: this.dashboard.week_chart.map(i => i[0]),
         datasets: [
           {
-            label: 'Speed',
+            label: 'Velocidad',
             borderColor: '#f87979',
             data: this.dashboard.week_chart.map(i => i[1]),
             tension: 0.2,
           },
           {
-            label: 'Distance',
+            label: 'Disttancia',
             borderColor: '#7acbf9',
             data: this.dashboard.week_chart.map(i => i[2]),
             tension: 0.2,
@@ -119,7 +119,7 @@ export default {
         .then(() => {
           this.loadDashboard()
           this.addToastMessage({
-            text: 'New time record was added!',
+            text: 'Nuevo registro ingresado',
             type: 'success',
           })
           this.form = {

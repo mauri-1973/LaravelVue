@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>Users</h3>
+    <h3>Usuarios</h3>
     <hr>
 
     <div class="row marginbot10">
@@ -8,12 +8,12 @@
         <div class="input-group">
           <input v-model="search" type="text" class="form-control">
           <span class="input-group-btn">
-            <button class="btn btn-primary" @click="onSearch">Search</button>
+            <button class="btn btn-primary" @click="onSearch">Buscar</button>
           </span>
         </div>
       </div>
       <div class="col-sm-6 text-right">
-        <span class="page-info">Page {{ users.current_page }} of {{ users.last_page }}</span>
+        <span class="page-info">Página {{ users.current_page }} de {{ users.last_page }}</span>
       </div>
     </div>
 
@@ -21,11 +21,11 @@
       <table class="table table-bordered">
         <thead>
           <tr>
-            <th>Name</th>
+            <th>Nombre</th>
             <th>Email</th>
-            <th>Role</th>
-            <th>Created at</th>
-            <th>Actions</th>
+            <th>Rol</th>
+            <th>Fecha de Ingreso</th>
+            <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -97,7 +97,7 @@ export default {
     onDelete (id) {
       this.deleteUser(id).then(() => {
         this.addToastMessage({
-          text: 'User was deleted!',
+          text: 'Usuario eliminado correctamente',
           type: 'success',
         })
         this.loadUsers(this.params)

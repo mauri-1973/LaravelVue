@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h3>Registro de Entradas</h3>
+    <h3>Registro de Estadísticas</h3>
     <hr>
 
     <div class="row marginbot10">

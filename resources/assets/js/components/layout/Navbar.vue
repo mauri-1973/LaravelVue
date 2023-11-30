@@ -32,7 +32,7 @@
           </RouterLink>
           <RouterLink v-slot="{ navigate, href, isActive }" custom to="/entries">
             <li :class="{active: isActive}">
-              <a :href="href" @click="navigate">Entradas</a>
+              <a :href="href" @click="navigate">Entadísticas</a>
             </li>
           </RouterLink>
 

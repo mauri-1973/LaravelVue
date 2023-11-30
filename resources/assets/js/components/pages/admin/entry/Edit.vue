@@ -1,16 +1,16 @@
 <template>
   <div>
-    <h3>Edit Entry</h3>
+    <h3>Editar Estadística</h3>
     <hr>
 
     <p>
-      <a href="#" class="btn btn-primary" @click.prevent="$router.go(-1)">Back</a>
+      <a href="#" class="btn btn-primary" @click.prevent="$router.go(-1)">Volver</a>
     </p>
 
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
         <div class="panel panel-default">
-          <div class="panel-heading">Edit Time Record</div>
+          <div class="panel-heading">Editar Registro</div>
           <div class="panel-body">
             <entry-form :form="form" :errors="errors" @onSubmit="onSubmit" />
           </div>
@@ -80,7 +80,7 @@ export default {
       this.updateEntry({ id, form })
         .then(() => {
           this.addToastMessage({
-            text: 'Time record was updated!',
+            text: 'registro editado correctamente!',
             type: 'success',
           })
           this.$router.go(- 1)

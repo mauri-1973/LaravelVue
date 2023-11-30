@@ -1,16 +1,16 @@
 <template>
   <div>
-    <h3>Edit User</h3>
+    <h3>Editar Usuario</h3>
     <hr>
 
     <p>
-      <a href="#" class="btn btn-primary" @click.prevent="$router.go(-1)">Back</a>
+      <a href="#" class="btn btn-primary" @click.prevent="$router.go(-1)">Volver</a>
     </p>
 
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
         <div class="panel panel-default">
-          <div class="panel-heading">Edit User</div>
+          <div class="panel-heading">Editar</div>
           <div class="panel-body">
             <user-form :form="form" :errors="errors" @onSubmit="onSubmit" />
           </div>

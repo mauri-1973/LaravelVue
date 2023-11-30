@@ -1,25 +1,25 @@
 <template>
   <div>
-    <h3>Time Entries</h3>
+    <h3>Tiempos Registrados</h3>
     <hr>
 
     <div class="row marginbot10">
       <div class="col-sm-6 filters">
         <div class="input-group">
-          <span class="input-group-addon">From:</span>
-          <input v-model="dateFrom" type="date" class="form-control date-filter" placeholder="Date from">
-          <span class="input-group-addon">To:</span>
-          <input v-model="dateTo" type="date" class="form-control date-filter" placeholder="Date to">
+          <span class="input-group-addon">Desde:</span>
+          <input v-model="dateFrom" type="date" class="form-control date-filter" placeholder="Fecha Desde">
+          <span class="input-group-addon">Hasta:</span>
+          <input v-model="dateTo" type="date" class="form-control date-filter" placeholder="Fecha hasta">
           <span class="input-group-btn">
-            <button class="btn btn-primary" @click="onFilter">Filter</button>
+            <button class="btn btn-primary" @click="onFilter">Filtrar</button>
           </span>
           <span class="input-group-btn">
-            <button class="btn btn-default" @click="onFilterClear">Clear</button>
+            <button class="btn btn-default" @click="onFilterClear">Limpiar</button>
           </span>
         </div>
       </div>
       <div class="col-sm-6 text-right">
-        <span class="page-info">Page {{ entries.current_page }} of  {{ entries.last_page }}</span>
+        <span class="page-info">Página {{ entries.current_page }} de  {{ entries.last_page }}</span>
       </div>
     </div>
 
@@ -27,13 +27,13 @@
       <table class="table table-bordered">
         <thead>
           <tr>
-            <th>User</th>
-            <th>Date</th>
-            <th>Distance</th>
-            <th>Time</th>
-            <th>Avg. Speed</th>
-            <th>Avg. Pace</th>
-            <th>Actions</th>
+            <th>Usuario</th>
+            <th>Fecha</th>
+            <th>Distancia</th>
+            <th>Tiempo</th>
+            <th>Velocidad Media</th>
+            <th>Promedio</th>
+            <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -113,7 +113,7 @@ export default {
     onDelete (id) {
       this.deleteEntry(id).then(() => {
         this.addToastMessage({
-          text: 'Entry was deleted!',
+          text: 'Registro eliminado',
           type: 'success',
         })
         this.loadAllEntries(this.params)
