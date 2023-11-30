@@ -57,6 +57,7 @@ class DashboardController extends Controller
      * @param Request $request
      * @return mixed
      */
+    
     public function adminData(Request $request)
     {
         /** @var User $me */

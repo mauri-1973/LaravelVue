@@ -147,6 +147,7 @@ class EntryController extends Controller
 
         return ['entry' => $entry];
     }
+    
 
     /**
      * Delete entry

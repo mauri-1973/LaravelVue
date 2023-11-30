@@ -110,6 +110,7 @@ class UserController extends Controller
 
         return ['user' => $user];
     }
+    
 
     /**
      * Delete user
