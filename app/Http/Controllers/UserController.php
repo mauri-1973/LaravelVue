@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Mail;
 use App\Mail\EmailInfo;
+use Illuminate\Support\Facades\Lang;
 
 /**
  * Class UserController

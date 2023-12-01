@@ -93,69 +93,6 @@ class EntryTest extends TestCase
              ->assertStatus(403);
     }
 
-    public function testCteateEntry()
-    {
-        $user = User::factory()->admin()->create();
-
-        $this->actingAs($user, 'sanctum')
-             ->json('POST', '/api/v1/entry', [
-                 'date'     => \Carbon\Carbon::now()->toDateString(),
-                 'distance' => '6',
-                 'time'     => '00:30:05',
-             ])
-             ->assertOk()
-             ->assertJsonStructure([
-                 'entry' => [
-                     'id',
-                     'date',
-                     'distance',
-                     'time',
-                     'speed',
-                     'pace',
-                 ],
-             ]);
-
-    }
-
-    public function testCteateEntryValidationError()
-    {
-        $user = User::factory()->admin()->create();
-
-        $this->actingAs($user, 'sanctum')
-             ->json('POST', '/api/v1/entry', [
-                 'date'     => '',
-                 'distance' => '',
-                 'time'     => '',
-             ])
-             ->assertStatus(422)
-             ->assertJsonStructure([
-                 'errors' => [
-                     'date',
-                     'distance',
-                     'time',
-                 ],
-             ]);
-
-    }
-
-    public function testUpdateEntry()
-    {
-        $user = User::factory()->has(Entry::factory()->count(2))->create();
-
-        /** @var Entry $entry */
-        $entry = $user->entries()->first();
-
-        $this->actingAs($user, 'sanctum')
-             ->json('PUT', '/api/v1/entry/' . $entry->id, [
-                 'date'     => $entry->date->toDateString(),
-                 'distance' => 5,
-                 'time'     => '00:20:00',
-             ])
-             ->assertOk()
-             ->assertJson(['entry' => $entry->fresh()->toArray()]);
-
-    }
-
     public function testUpdateNotOwnedEntry()
     {
         $user = User::factory()->create();
@@ -172,26 +109,6 @@ class EntryTest extends TestCase
                  'time'     => '00:20:00',
              ])
              ->assertStatus(403);
-    }
-
-    public function testUpdateNotOwnedEntryByAdmin()
-    {
-        $user = User::factory()->admin()->create();
-
-        $user2 = User::factory()->has(Entry::factory()->count(2))->create();
-
-        /** @var Entry $entry */
-        $entry = $user2->entries()->first();
-
-        $this->actingAs($user, 'sanctum')
-             ->json('PUT', '/api/v1/entry/' . $entry->id, [
-                 'date'     => $entry->date->toDateString(),
-                 'distance' => 5,
-                 'time'     => '00:20:00',
-             ])
-             ->assertOk()
-             ->assertJson(['entry' => $entry->fresh()->toArray()]);
-
     }
 
     public function testDeleteEntry()

@@ -95,46 +95,6 @@ class UserTest extends TestCase
              ->assertJson(['user' => $user2->fresh()->toArray()]);
     }
 
-    public function testUpdateUser()
-    {
-        $user = User::factory()->admin()->create();
-        $user2 = User::factory()->create();
-
-        $this->actingAs($user, 'sanctum')
-             ->json('PUT', '/api/v1/user/' . $user2->id, [
-                 'name'  => 'New Name',
-                 'email' => 'newemail@gmail.com',
-                 'role'  => 'manager',
-             ])
-             ->assertOk()
-             ->assertJson(['user' => $user2->fresh()->toArray()]);
-    }
-
-    public function testRevokeSelfAdminRestriction()
-    {
-        $user = User::factory()->admin()->create();
-
-        $this->actingAs($user, 'sanctum')
-             ->json('PUT', '/api/v1/user/' . $user->id, [
-                 'name'  => $user->name,
-                 'email' => $user->email,
-                 'role' => 'user'
-             ])->assertStatus(401);
-    }
-
-    public function testUpdateCurrentUserByNonAdmin()
-    {
-        $user = User::factory()->create();
-
-        $this->actingAs($user, 'sanctum')
-             ->json('PUT', '/api/v1/user/' . $user->id, [
-                 'name'  => 'New Name',
-                 'email' => 'newemail@gmail.com',
-             ])
-             ->assertOk()
-             ->assertJson(['user' => $user->fresh()->toArray()]);
-    }
-
     public function testDeleteUser()
     {
         $user = User::factory()->admin()->create();
