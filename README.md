@@ -2,23 +2,27 @@ Iniciando Demo
 
 Esta demo esta realizada bajo sistema operativo windows 11, para que pueda realizar correctamente la demostración
 debe tener instalado los siguiente programas:
-Php en una versión superior a la 8.1
-Composer en su última versión
-Nodejs v18.15.0
-Gestor dependencias de JavaScript Yarn
-Bases de datos instalada. En mi caso Mysql
+- Php en una versión superior a la 8.1
+- Composer en su última versión
+- Nodejs v18.15.0
+- Gestor dependencias de JavaScript Yarn
+- Bases de datos instalada. En mi caso Mysql
 
-.- clone el proyecto en su ordenador git https://github.com/mauri-1973/LaravelVue.git
-.- desde la terminal ingrese al la carpeta cd LaravelVue
-.- Realize el comando en consola composer install
-.- Renombrar el archivo .env.example por .env y ralizar las configuraciones correspoendienta al acceso a la base de datos y la configuración para el envío de email's
-.- Generar la key de laravel php artisan key:generate
-.- Agregar las migraciones y seeders php artisan migrate --seed
-.- Instalar passport php artisan passport:install
-.- Instalar dependencias javascript por consola ingresar yarn
-.- Para compilar por consola agregar el comando yarn prod
-.- Habilitar el server de laravel php artisan serve
-.- Ir al navegador con la url http://127.0.0.1:8000
+
+
+
+
+- clone el proyecto en su ordenador git https://github.com/mauri-1973/LaravelVue.git
+- desde la terminal ingrese al la carpeta cd LaravelVue
+- Realize el comando en consola composer install
+- Renombrar el archivo .env.example por .env y ralizar las configuraciones correspoendienta al acceso a la base de datos y la configuración para el envío de email's
+- Generar la key de laravel php artisan key:generate
+- Agregar las migraciones y seeders php artisan migrate --seed
+- Instalar passport php artisan passport:install
+- Instalar dependencias javascript por consola ingresar yarn
+- Para compilar por consola agregar el comando yarn prod
+- Habilitar el server de laravel php artisan serve
+- Ir al navegador con la url http://127.0.0.1:8000
 
 Accesos login para los distintos perfiles
 
@@ -33,8 +37,8 @@ pass: 123456
 
 Test unitarios
 
-.- configurar archivo .env.ci con los respectivos accesos 
-.- en consola aplicar php artisan test
+- configurar archivo .env.ci con los respectivos accesos 
+- en consola aplicar php artisan test
 
 
 
